@@ -1,19 +1,16 @@
-import React, {useState} from "react";
+import React, {Dispatch, useState} from "react";
 import {connect} from "react-redux";
 import {User} from "../models/user";
 import {Link, Navigate} from "react-router-dom";
 import axios from "axios";
+import {setUser} from "../redux/actions/setUserAction";
 
-const Nav = (props: { user: User }) => {
-    const [redirect, setRedirect] = useState(false);
+const Nav = (props: any) => {
     const logout = async () => {
         await axios.post("/logout")
-        setRedirect(true);
+        props.setUser(null);
     };
 
-    if (redirect){
-        return <Navigate to="/login"/>
-    }
 
     let menu;
 
@@ -62,4 +59,6 @@ const Nav = (props: { user: User }) => {
 
 export default connect((state: { user: User }) => ({
     user: state.user,
+}), (dispatch: Dispatch<any>) => ({
+    setUser: (user: User) => dispatch(setUser(user)),
 }))(Nav);
