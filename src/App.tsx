@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import Stats from "./pages/Stats";
 import Rankings from "./pages/Rankings";
+import ProductsBackend from "./pages/ProductsBackend";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/stats" element={<Stats />} />
         <Route path="/rankings" element={<Rankings />} />
+        <Route path="/backend" element={<ProductsBackend />} />
       </Routes>
     </BrowserRouter>
   );

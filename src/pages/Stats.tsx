@@ -8,7 +8,7 @@ const Stats = () => {
         (
             async () => {
                 const {data} = await axios.get("/stats");
-                setStats(data);
+                setStats(data.data);
             }
         )
         ();

@@ -4,14 +4,14 @@ import Header from "../components/Header";
 import Products from "./Products";
 import axios from "axios";
 
-const ProductsFrontend = () => {
+const ProductsBackend = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
         (
             async () => {
-                const {data} = await axios.get("/products/frontend");
-                setProducts(data);
+                const {data} = await axios.get("/products/backend");
+                setProducts(data.data);
             }
         )
         ();
@@ -20,7 +20,6 @@ const ProductsFrontend = () => {
     return (
         <Layout><Products products={products}/></Layout>
     );
-
 };
 
-export default ProductsFrontend;
+export default ProductsBackend;

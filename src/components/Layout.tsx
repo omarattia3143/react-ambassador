@@ -1,10 +1,10 @@
 import React, { Dispatch, useEffect, useState } from "react";
 import Nav from "./Nav";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
 import { User } from "../models/user";
 import { setUser } from "../redux/actions/setUserAction";
 import { connect } from "react-redux";
+import Header from "./Header";
 
 const Layout = (props: any) => {
   useEffect(() => {
@@ -21,7 +21,7 @@ const Layout = (props: any) => {
   return (
     <div>
       <Nav />
-      <header />
+      <Header />
       <main>
         <div className="album py-5 bg-light">
           <div className="container">{props.children}</div>
